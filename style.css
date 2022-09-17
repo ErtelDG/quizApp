@@ -1,0 +1,16 @@
+body {
+      background-color: #fefaef !important;
+}
+
+.container {
+      background-color: #fefaef !important;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.question-footer {
+      display: flex;
+      justify-content: space-between
+}
