@@ -106,9 +106,15 @@ function init() {
 //show question
 function showQuestion() {
           if (currentQuestion >= questions.length) {
-                    alert("end");
+                    progressBar();
+                    document.getElementById("endScreen").style = "";
+                    document.getElementById("questionBody").style =
+                              "display:none;";
+                    document.getElementById("imgQuiz").src = "img/cup.jpg";
 
-                    //TODO: Show End Screen
+                    document.getElementById("maxQuestionsEnd").innerHTML =
+                              questions.length;
+                    document.getElementById("resultPlayer").innerHTML = score;
           } else {
                     let question = questions[currentQuestion];
                     document.getElementById("questiontext").innerHTML =
@@ -123,6 +129,7 @@ function showQuestion() {
                               question.answer_4;
                     document.getElementById("answer_5").innerHTML =
                               question.answer_5;
+                    progressBar();
           }
 }
 
@@ -173,4 +180,18 @@ function resetAnswerButtons() {
                               "bg-danger"
                     );
           }
+}
+
+//show progress bar questions
+function progressBar() {
+          let progress = currentQuestion;
+          let allQestions = questions.length;
+          let progressInPercent = Math.round((100 / allQestions) * progress);
+          console.log(progressInPercent);
+          document.getElementById(
+                    `progressBar`
+          ).style = `width: ${progressInPercent}%`;
+          document.getElementById(
+                    `progressBar`
+          ).innerHTML = `${progressInPercent}%`;
 }
