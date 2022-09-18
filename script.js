@@ -91,3 +91,86 @@ let questions = [
                     right_answer: 4,
           },
 ];
+
+let score = 0;
+let currentQuestion = 0;
+
+//render main start side
+function init() {
+          document.getElementById(
+                    "maxQuestions"
+          ).innerHTML = `${questions.length}`;
+          showQuestion();
+}
+
+//show question
+function showQuestion() {
+          if (currentQuestion >= questions.length) {
+                    alert("end");
+
+                    //TODO: Show End Screen
+          } else {
+                    let question = questions[currentQuestion];
+                    document.getElementById("questiontext").innerHTML =
+                              question.question;
+                    document.getElementById("answer_1").innerHTML =
+                              question.answer_1;
+                    document.getElementById("answer_2").innerHTML =
+                              question.answer_2;
+                    document.getElementById("answer_3").innerHTML =
+                              question.answer_3;
+                    document.getElementById("answer_4").innerHTML =
+                              question.answer_4;
+                    document.getElementById("answer_5").innerHTML =
+                              question.answer_5;
+          }
+}
+
+//check answer and go next question
+function answer(idValue) {
+          let questionRightAnswer = questions[currentQuestion].right_answer;
+          let questionLastValue = idValue.slice(-1);
+
+          if (questionLastValue == questionRightAnswer) {
+                    document.getElementById(idValue).classList.add(
+                              "bg-success"
+                    );
+                    score++;
+          } else {
+                    document.getElementById(idValue).classList.add("bg-danger");
+                    let rightID = "answer_" + questionRightAnswer;
+                    document.getElementById(`${rightID}`).classList.add(
+                              "bg-success"
+                    );
+          }
+
+          document.getElementById("sendButton").disabled = false;
+}
+
+function nextQuestion() {
+          //increases counter for next element in json
+          currentQuestion++;
+          //disable button
+          document.getElementById("sendButton").disabled = true;
+          //show current question
+          document.getElementById("currentQuestion").innerHTML = `${
+                    currentQuestion + 1
+          }`;
+          //reset background color answer
+          resetAnswerButtons();
+          //show next question
+          showQuestion();
+}
+
+//reset background color answer
+function resetAnswerButtons() {
+          for (let index = 1; index < 6; index++) {
+                    const element = "answer_" + index;
+                    document.getElementById(element).classList.remove(
+                              "bg-success"
+                    );
+                    document.getElementById(element).classList.remove(
+                              "bg-danger"
+                    );
+          }
+}
