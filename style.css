@@ -12,5 +12,9 @@ body {
 
 .question-footer {
       display: flex;
-      justify-content: space-between
+      justify-content: space-between;
+      padding: 12px 18px 18px 18px;
+
+      border-top: 1px solid rgba(0, 0, 0, 0.4);
+      align-items: center;
 }
