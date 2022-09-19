@@ -37,7 +37,7 @@ let questions = [
                     right_answer: 2,
           },
           {
-                    question: "WasWas davon ist keine Linux Distro??",
+                    question: "Was davon ist keine Linux Distro?",
                     answer_1: "Damn Small Linux",
                     answer_2: "KDE",
                     answer_3: "Peppermint",
@@ -82,7 +82,7 @@ let questions = [
                     right_answer: 1,
           },
           {
-                    question: "Was?",
+                    question: "Was ist kein Desktop?",
                     answer_1: "Plasma",
                     answer_2: "Mate",
                     answer_3: "Xfce",
@@ -95,6 +95,9 @@ let questions = [
 let score = 0;
 let currentQuestion = 0;
 
+let audioSuccess = new Audio("audio/success.mp3");
+let audioWrong = new Audio("audio/wrong.mp3");
+
 //render main start side
 function init() {
           document.getElementById(
@@ -106,30 +109,9 @@ function init() {
 //show question
 function showQuestion() {
           if (currentQuestion >= questions.length) {
-                    progressBar();
-                    document.getElementById("endScreen").style = "";
-                    document.getElementById("questionBody").style =
-                              "display:none;";
-                    document.getElementById("imgQuiz").src = "img/cup.jpg";
-
-                    document.getElementById("maxQuestionsEnd").innerHTML =
-                              questions.length;
-                    document.getElementById("resultPlayer").innerHTML = score;
+                    showEndResult();
           } else {
-                    let question = questions[currentQuestion];
-                    document.getElementById("questiontext").innerHTML =
-                              question.question;
-                    document.getElementById("answer_1").innerHTML =
-                              question.answer_1;
-                    document.getElementById("answer_2").innerHTML =
-                              question.answer_2;
-                    document.getElementById("answer_3").innerHTML =
-                              question.answer_3;
-                    document.getElementById("answer_4").innerHTML =
-                              question.answer_4;
-                    document.getElementById("answer_5").innerHTML =
-                              question.answer_5;
-                    progressBar();
+                    showNextQuestion();
           }
 }
 
@@ -139,19 +121,47 @@ function answer(idValue) {
           let questionLastValue = idValue.slice(-1);
 
           if (questionLastValue == questionRightAnswer) {
-                    document.getElementById(idValue).classList.add(
-                              "bg-success"
-                    );
-                    score++;
+                    rightAnswer(idValue);
           } else {
-                    document.getElementById(idValue).classList.add("bg-danger");
-                    let rightID = "answer_" + questionRightAnswer;
-                    document.getElementById(`${rightID}`).classList.add(
-                              "bg-success"
-                    );
+                    wrongAnswer(idValue, questionRightAnswer);
           }
 
           document.getElementById("sendButton").disabled = false;
+}
+
+function showEndResult() {
+          progressBar();
+          document.getElementById("endScreen").style = "";
+          document.getElementById("questionBody").style = "display:none;";
+          document.getElementById("imgQuiz").src = "img/cup.jpg";
+
+          document.getElementById("maxQuestionsEnd").innerHTML =
+                    questions.length;
+          document.getElementById("resultPlayer").innerHTML = score;
+}
+
+function showNextQuestion() {
+          let question = questions[currentQuestion];
+          document.getElementById("questiontext").innerHTML = question.question;
+          document.getElementById("answer_1").innerHTML = question.answer_1;
+          document.getElementById("answer_2").innerHTML = question.answer_2;
+          document.getElementById("answer_3").innerHTML = question.answer_3;
+          document.getElementById("answer_4").innerHTML = question.answer_4;
+          document.getElementById("answer_5").innerHTML = question.answer_5;
+          progressBar();
+}
+
+function rightAnswer(idValue) {
+          document.getElementById(idValue).classList.add("bg-success");
+          audioSuccess.play();
+          score++;
+}
+
+function wrongAnswer(idValue, questionRightAnswer) {
+          document.getElementById(idValue).classList.add("bg-danger");
+          let rightID = "answer_" + questionRightAnswer;
+          document.getElementById(`${rightID}`).classList.add("bg-success");
+          audioWrong.play();
 }
 
 function nextQuestion() {
@@ -187,11 +197,21 @@ function progressBar() {
           let progress = currentQuestion;
           let allQestions = questions.length;
           let progressInPercent = Math.round((100 / allQestions) * progress);
-          console.log(progressInPercent);
+
           document.getElementById(
                     `progressBar`
           ).style = `width: ${progressInPercent}%`;
           document.getElementById(
                     `progressBar`
           ).innerHTML = `${progressInPercent}%`;
+}
+
+function restartGame() {
+          document.getElementById("imgQuiz").src = "img/question.jpg";
+          document.getElementById("endScreen").style = "display:none;";
+          document.getElementById("questionBody").style = "";
+          document.getElementById("currentQuestion").innerHTML = 1;
+          score = 0;
+          currentQuestion = 0;
+          init();
 }

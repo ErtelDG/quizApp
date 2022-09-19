@@ -27,6 +27,13 @@ body {
 
 .card-body {
       background-color: #F7F7F7;
+
+}
+
+.card-end {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
 }
 
 .bg-success {
@@ -43,4 +50,32 @@ body {
 
 .text-center {
       text-align: center;
+}
+
+
+.button-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+}
+
+@media (max-width: 510px) {
+      body {
+            padding: 0px;
+            margin: 0px;
+      }
+
+      .card {
+            min-width: 100vw;
+      }
+
+      .container {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            width: 100%;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+      }
 }
