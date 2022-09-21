@@ -98,6 +98,13 @@ let currentQuestion = 0;
 let audioSuccess = new Audio("audio/success.mp3");
 let audioWrong = new Audio("audio/wrong.mp3");
 
+//start quiz
+function startQuiz() {
+          document.getElementById("startSide").style = "display:none";
+          document.getElementById("quizSideStart").style = " ";
+          init();
+}
+
 //render main start side
 function init() {
           document.getElementById(
@@ -125,6 +132,7 @@ function answer(idValue) {
           } else {
                     wrongAnswer(idValue, questionRightAnswer);
           }
+          disableAnswer();
 
           document.getElementById("sendButton").disabled = false;
 }
@@ -148,6 +156,7 @@ function showNextQuestion() {
           document.getElementById("answer_3").innerHTML = question.answer_3;
           document.getElementById("answer_4").innerHTML = question.answer_4;
           document.getElementById("answer_5").innerHTML = question.answer_5;
+          enableAnswer();
           progressBar();
 }
 
@@ -162,6 +171,22 @@ function wrongAnswer(idValue, questionRightAnswer) {
           let rightID = "answer_" + questionRightAnswer;
           document.getElementById(`${rightID}`).classList.add("bg-success");
           audioWrong.play();
+}
+
+function disableAnswer() {
+          document.getElementById("answerBox1").style.pointerEvents = "none";
+          document.getElementById("answerBox2").style.pointerEvents = "none";
+          document.getElementById("answerBox3").style.pointerEvents = "none";
+          document.getElementById("answerBox4").style.pointerEvents = "none";
+          document.getElementById("answerBox5").style.pointerEvents = "none";
+}
+
+function enableAnswer() {
+          document.getElementById("answerBox1").style.pointerEvents = "auto";
+          document.getElementById("answerBox2").style.pointerEvents = "auto";
+          document.getElementById("answerBox3").style.pointerEvents = "auto";
+          document.getElementById("answerBox4").style.pointerEvents = "auto";
+          document.getElementById("answerBox5").style.pointerEvents = "auto";
 }
 
 function nextQuestion() {
