@@ -79,7 +79,7 @@ body {
 
 .start-side-body-style {
       height: 150px;
-            text-align: center;
+      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -92,10 +92,10 @@ body {
 }
 
 .pointer-event-disable {
-pointer-events: none;
+      pointer-events: none;
 }
 
-.testseite{
+.testseite {
       align-self: flex-start;
 }
 
@@ -117,5 +117,16 @@ pointer-events: none;
             padding-left: 0px !important;
             margin-right: 0px !important;
             margin-left: 0px !important;
+      }
+}
+
+@media (max-height: 750px) {
+      .start-side-body-style {
+            height: 150px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 120px;
       }
 }
