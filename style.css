@@ -43,6 +43,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
 }
 
 .card-end {
@@ -102,26 +103,18 @@ body {
       align-self: flex-start;
 }
 
-@media (max-width: 510px) {
-      body {
-            padding: 0px;
-            margin: 0px;
+
+@media(max-height: 850px) {
+      .display-none-850 {
+            display: none;
       }
 
-      .card {
-            min-width: 100vw;
-      }
-
-      .container {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            width: 100%;
-            padding-right: 0px !important;
-            padding-left: 0px !important;
-            margin-right: 0px !important;
-            margin-left: 0px !important;
+      .end-screen {
+            padding-top: 250px;
       }
 }
+
+
 
 @media (max-height: 750px) {
       .start-side-body-style {
@@ -131,5 +124,52 @@ body {
             align-items: center;
             justify-content: center;
             margin-bottom: 120px;
+      }
+}
+
+@media (max-height: 630px) {
+      .display-none-630 {
+            display: none;
+      }
+}
+
+@media (max-height: 500px) {
+      .display-none-500 {
+            display: none;
+      }
+
+      .wrap-element {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            min-height: fit-content;
+      }
+
+      .element-space-aroun-500 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+      }
+
+      .end-screen {
+            padding-top: 150px;
+      }
+}
+
+@media (max-height: 350px) {
+      .display-none-350 {
+            display: none;
+      }
+
+      .text-center {
+            text-align: center !important;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      button {
+            width: 150px;
       }
 }
