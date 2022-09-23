@@ -30,6 +30,8 @@ body {
 
 }
 
+
+
 .card-img-start {
       background-image: url("img/brainbg.jpg");
 
@@ -89,6 +91,7 @@ body {
 .img-start-background {
       background-image: url("img/brainbg.jpg");
       background-position: center;
+      background-size: cover;
 }
 
 .pointer-event-disable {

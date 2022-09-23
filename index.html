@@ -17,22 +17,22 @@
 
 
       <div class="container fixed-top">
-            <div class="card d-flex flex-row" >
+            <div class="card d-flex flex-row">
 
-                  <div class="card-body"  id="startSide" style="width: 640px;">
-                        <div class="card-body start-side-header-style" style="height: 270px">
+                  <div class="card  vh-100 fixed-top" id="startSide">
+                        <div class="card-body start-side-header-style" >
                               <img src="img/logo.png" class="img-start-side">
                               <div>QUIZAPP</div>
                         </div>
-                        <div class="card-body col text-center img-start-background" style="height: 580px">
+                        <div class="card-body col text-center img-start-background heightBox">
                               <h1 class="start-side-body-style">Ready for the Challenge?</h1>
-                              <button id="startButton" class="btn btn-lg btn-primary" onclick="startQuiz()"
-                                    >STARTE QUIZ</button>
+                              <button id="startButton" class="btn btn-lg btn-primary" onclick="startQuiz()">STARTE
+                                    QUIZ</button>
                         </div>
 
                   </div>
-                  
-                  <div class="card-body vh-100" style="display: none;" id="quizSideStart" style="width: 640px;">
+
+                  <div class="card vh-100" style="display: none;" id="quizSideStart" style="width: 640px;">
                         <img src="img/question.jpg" id="imgQuiz" class="card-img-top">
                         <div class="progress">
                               <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated"
@@ -41,7 +41,7 @@
 
                         </div>
 
-                        <div class="card-body text-center" id="endScreen" style="display:none;">
+                        <div class="card text-center" id="endScreen" style="display:none;">
                               <h3 class="text-center">Quiz beendet!</h3>
                               <h4 class="text-center">Du hast <b id="resultPlayer"></b> von <b id="maxQuestionsEnd"></b>
                                     Fragen beantwortet!</h4>

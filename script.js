@@ -45,15 +45,7 @@ let questions = [
                     answer_5: "Poppy",
                     right_answer: 2,
           },
-          {
-                    question: "Welche Distribution hat die Anwendungsverwaltung mit den meisten Anwendungen?",
-                    answer_1: "Elementary",
-                    answer_2: "Mint",
-                    answer_3: "Ubuntu ",
-                    answer_4: "Arch",
-                    answer_5: "Peppermint",
-                    right_answer: 3,
-          },
+     
           {
                     question: "Was ist die ressourcensparendste Linux Oberfläche?",
                     answer_1: "Mate",
@@ -72,15 +64,7 @@ let questions = [
                     answer_5: "slackware",
                     right_answer: 2,
           },
-          {
-                    question: "Zwischen wie viel Arbeitsspeicher können die unterschiedlichen Distros brauchen?",
-                    answer_1: "10 MB - 1 GB",
-                    answer_2: "400 MB - 700 MB",
-                    answer_3: "1 GB - 5GB",
-                    answer_4: "600 MB - 1,4 GB",
-                    answer_5: "1,4 GB - 2,0 GB",
-                    right_answer: 1,
-          },
+      
           {
                     question: "Was ist kein Desktop?",
                     answer_1: "Plasma",
