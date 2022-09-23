@@ -45,7 +45,7 @@ let questions = [
                     answer_5: "Poppy",
                     right_answer: 2,
           },
-     
+
           {
                     question: "Was ist die ressourcensparendste Linux Oberfläche?",
                     answer_1: "Mate",
@@ -64,7 +64,7 @@ let questions = [
                     answer_5: "slackware",
                     right_answer: 2,
           },
-      
+
           {
                     question: "Was ist kein Desktop?",
                     answer_1: "Plasma",
@@ -174,18 +174,15 @@ function enableAnswer() {
 }
 
 function nextQuestion() {
-          //increases counter for next element in json
-          currentQuestion++;
-          //disable button
-          document.getElementById("sendButton").disabled = true;
+          currentQuestion++; //increases counter for next element in json
+
+          document.getElementById("sendButton").disabled = true; //disable button
           //show current question
           document.getElementById("currentQuestion").innerHTML = `${
                     currentQuestion + 1
           }`;
-          //reset background color answer
-          resetAnswerButtons();
-          //show next question
-          showQuestion();
+          resetAnswerButtons(); //reset background color answer
+          showQuestion(); //show next question
 }
 
 //reset background color answer
