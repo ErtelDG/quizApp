@@ -2,104 +2,97 @@
 <html lang="en">
 
 <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="img/question.jpg" type="image/x-icon">
-      <link rel="stylesheet" href="style.css">
-      <!-- Bootstrap Files -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-      <title>Quiz App</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/question.jpg" type="image/x-icon">
+	<link rel="stylesheet" href="style.css">
+	<!-- Bootstrap Files -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<title>Quiz App</title>
 </head>
 
 <body>
 
 
-      <div class="container fixed-top">
-            <div class="card d-flex flex-row">
+	<div class="container fixed-top">
+		<div class="card d-flex flex-row">
 
-                  <div class="card  vh-100 fixed-top" id="startSide">
-                        <div class="card-body start-side-header-style display-none-850">
-                              <img src="img/logo.png" class="img-start-side">
+			<div class="card  vh-100 fixed-top" id="startSide">
+				<div class="card-body start-side-header-style display-none-850 display-none-560 img-height-200 img-height-100">
+					<img src="img/logo.png" class="img-start-side">
 
-                        </div>
-                        <div class="card-body col text-center img-start-background heightBox">
-                              <h1 class="start-side-body-style display-none-350">Ready for the Challenge?</h1>
-                              <button id="startButton" class="btn btn-lg btn-primary" onclick="startQuiz()">STARTE
-                                    QUIZ</button>
-                        </div>
+				</div>
+				<div class="card-body col text-center img-start-background heightBox">
+					<h1 class="start-side-body-style display-none-350">Ready for the Challenge?</h1>
+					<button id="startButton" class="btn btn-lg btn-primary" onclick="startQuiz()">STARTE
+						QUIZ</button>
+				</div>
 
-                  </div>
+			</div>
 
-                  <div class="card vh-100" style="display: none;" id="quizSideStart" style="width: 640px;">
-                        <img src="img/question.jpg" id="imgQuiz" class="card-img-top display-none-850">
-                        <div class="display-none-500">
-                              <div class="progress">
-                                    <div id="progressBar"
-                                          class="progress-bar progress-bar-striped progress-bar-animated"
-                                          role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-                                          style="width: 75%"></div>
-                              </div>
-                        </div>
+			<div class="card vh-100" style="display: none;" id="quizSideStart" style="width: 640px;">
+				<img src="img/question.jpg" id="imgQuiz"
+					class="card-img-top display-none-560 img-height-200 img-height-100">
+				<div class="display-none-500">
+					<div class="progress">
+						<div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated"
+							role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+						</div>
+					</div>
+				</div>
 
-                        <div class="card text-center" id="endScreen" style="display:none;">
-                              <h3 class="text-center end-screen">Quiz beendet!</h3>
-                              <h4 class="text-center">Du hast <b id="resultPlayer"></b> von <b id="maxQuestionsEnd"></b>
-                                    Fragen beantwortet!</h4>
-                              <button onclick="restartGame()" class="btn btn-primary button-row">Erneut spielen!
-                              </button>
-                        </div>
+				<div class="card text-center" id="endScreen" style="display:none;">
+					<h3 class="text-center end-screen">Quiz beendet!</h3>
+					<h4 class="text-center">Du hast <b id="resultPlayer"></b> von <b id="maxQuestionsEnd"></b>
+						Fragen beantwortet!</h4>
+					<button onclick="restartGame()" class="btn btn-primary button-row">Erneut spielen!
+					</button>
+				</div>
 
-                        <div class="card-body element-space-aroun-500" id="questionBody" style="max-width: 640px;">
+				<div class="card-body element-space-aroun-500" id="questionBody" style="max-width: 640px;">
 
-                              <h5 class="card-title text-center" id="questiontext">Frage</h5>
-                              <div class="wrap-element">
-                                    <div id="answerBox1" class="card mb-2 quiz-answer-card"
-                                          onclick="answer('answer_1')">
-                                          <div class="card-body" id="answer_1">
-                                                Antwort1
-                                          </div>
-                                    </div>
-                                    <div id="answerBox2" class="card mb-2 quiz-answer-card"
-                                          onclick="answer('answer_2')">
-                                          <div class="card-body" id="answer_2">
-                                                Antwort2
-                                          </div>
-                                    </div>
-                                    <div id="answerBox3" class="card mb-2 quiz-answer-card"
-                                          onclick="answer('answer_3')">
-                                          <div class="card-body" id="answer_3">
-                                                Antwort3
-                                          </div>
-                                    </div>
-                                    <div id="answerBox4" class="card mb-2 quiz-answer-card"
-                                          onclick="answer('answer_4')">
-                                          <div class="card-body" id="answer_4">
-                                                Antwort4
-                                          </div>
-                                    </div>
-                                    <div id="answerBox5" class="card mb-2 quiz-answer-card"
-                                          onclick="answer('answer_5')">
-                                          <div class="card-body" id="answer_5">
-                                                Antwort5
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="question-footer">
-                                    <span><b id="currentQuestion">1</b> von <b id="maxQuestions"></b> Fragen.</span>
-                                    <button disabled id="sendButton" onclick="nextQuestion()"
-                                          class="btn btn-primary">Nächste
-                                          Frage</button>
-                              </div>
-                        </div>
+					<h5 class="card-title text-center" id="questiontext">Frage</h5>
+					<div class="wrap-element">
+						<div id="answerBox1" class="card mb-2 quiz-answer-card size-answer min-size-180" onclick="answer('answer_1')">
+							<div class="card-body" id="answer_1">
+								Antwort1
+							</div>
+						</div>
+						<div id="answerBox2" class="card mb-2 quiz-answer-card size-answer min-size-180" onclick="answer('answer_2')">
+							<div class="card-body" id="answer_2">
+								Antwort2
+							</div>
+						</div>
+						<div id="answerBox3" class="card mb-2 quiz-answer-card size-answer min-size-180" onclick="answer('answer_3')">
+							<div class="card-body" id="answer_3">
+								Antwort3
+							</div>
+						</div>
+						<div id="answerBox4" class="card mb-2 quiz-answer-card size-answer min-size-180" onclick="answer('answer_4')">
+							<div class="card-body" id="answer_4">
+								Antwort4
+							</div>
+						</div>
+						<div id="answerBox5" class="card mb-2 quiz-answer-card size-answer min-size-180" onclick="answer('answer_5')">
+							<div class="card-body" id="answer_5">
+								Antwort5
+							</div>
+						</div>
+					</div>
+					<div class="question-footer">
+						<span><b id="currentQuestion">1</b> von <b id="maxQuestions"></b> Fragen.</span>
+						<button disabled id="sendButton" onclick="nextQuestion()" class="btn btn-primary">Nächste
+							Frage</button>
+					</div>
+				</div>
 
-                  </div>
+			</div>
 </body>
 <script src="script.js"></script>
 <!-- Bootstrap Script File -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"></script>
+	integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 </html>
